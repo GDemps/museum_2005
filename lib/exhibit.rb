@@ -4,6 +4,7 @@ class Exhibit
 
   def initialize(info)
     @name = info[:name]
+
   end
 
 end
