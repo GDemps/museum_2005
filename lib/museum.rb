@@ -28,4 +28,23 @@ class Museum
     @patrons << patron
   end
 
+  def patrons_by_exhibit_interest
+    collection = {}
+    @exhibits.each do |exhibit|
+      @patrons.each do |patron|
+        patron.interests.each do |interest|
+          if interest == exhibit.name && collection[exhibit].nil?
+            collection[exhibit] = [patron]
+          elsif interest == exhibit.name && collection[exhibit] != nil
+            collection[exhibit] << patron
+          elsif
+            collection[exhibit].nil? && interest != exhibit.name
+            collection[exhibit] = []
+          end
+        end
+      end
+    end
+    collection
+  end
+
 end
