@@ -14,6 +14,7 @@ class PatronTest < Minitest::Test
   def test_attributes_of_Patron
     patron_1 = Patron.new("Bob", 20)
     assert_equal "Bob", patron_1.name
+    assert_equal 20, patron_1.spending_money
   end
 
 end
