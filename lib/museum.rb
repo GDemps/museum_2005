@@ -11,4 +11,16 @@ class Museum
     @exhibits << exhibit
   end
 
+  def recommend_exhibits(patron)
+    recommended_exhibits = []
+    patron.interests.each do |interest|
+      @exhibits.each do |exhibit|
+        if exhibit.name == interest
+          recommended_exhibits << exhibit
+        end
+      end
+    end
+    recommended_exhibits
+  end
+
 end
